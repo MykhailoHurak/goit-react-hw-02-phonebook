@@ -1,0 +1,21 @@
+.ContactFilter {
+    width: 355px;
+    padding: 20px;
+    border: 2px solid black;
+    background-color: whitesmoke;
+}
+
+.ContactFilter__title {
+    text-align: center;
+}
+
+p {
+    text-align: center;
+}
+
+.ContactFilter__input {
+    display: block;
+    margin: 0 auto;
+    width: 280px;
+    height: 30px;
+}
