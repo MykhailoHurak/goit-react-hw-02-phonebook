@@ -1,4 +1,5 @@
 import React from 'react';
+import { nanoid } from 'nanoid';
 import css from './App.module.css';
 
 import ContactForm from './ContactForm/ContactForm';
@@ -15,11 +16,26 @@ class App extends React.Component {
     ],
   };
 
+  addContact = ({name, number}) => {
+    // console.log(name);
+    const contact = {
+      id: nanoid(),
+      name: name,
+      number: number,
+    }
+
+    this.setState((prevState) => ({
+      contacts: [contact, ...prevState.contacts]
+    }))
+  }
+
   render() {
     return (
       <div className={css.Phonebook}>
         <h1 className={css.Phonebook__title}>Phonebook</h1>
-        <ContactForm />
+        <ContactForm
+          onSubmit={this.addContact}
+        />
 
         <h2 className={css.Phonebook__title}>Contacts</h2>
         <ContactFilter />
