@@ -1,7 +1,7 @@
 import Contact from '../Contact/Contact';
 import css from './ContactList.module.css';
 
-function ContactList({ contacts }) {
+function ContactList({ contacts, onDeleteContact }) {
     return (
         <div className={css.ContactList}>
             <h3 className={css.ContactList__title}>ContactList</h3>
@@ -13,6 +13,7 @@ function ContactList({ contacts }) {
                             id={contact.id}
                             name={contact.name}
                             number={contact.number}
+                            onDeleteContact={onDeleteContact}
                         />
                     )
                 })}

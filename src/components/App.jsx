@@ -21,9 +21,8 @@ class App extends React.Component {
     const contactName = this.state.contacts.map(contact => contact.name);
     if (contactName.includes(name)) {
       alert(`${name} is already in contacts.`)
-    }
-
-    const contact = {
+    } else {
+          const contact = {
       id: nanoid(),
       name: name,
       number: number,
@@ -32,17 +31,8 @@ class App extends React.Component {
     this.setState((prevState) => ({
       contacts: [contact, ...prevState.contacts]
     }))
+    }
   }
-
-  // const contactNames = this.state.contacts.map(contact => contact.name);
-
-  //   if (contactNames.includes(data.name)) {
-  //     alert(`${data.name} is already in contacts.`);
-  //   } else {
-  //     this.setState(({ contacts }) => ({
-  //       contacts: [data, ...contacts],
-  //     }));
-  //   }
 
   changeFilter = (event) => {
     this.setState({
@@ -55,6 +45,12 @@ class App extends React.Component {
     return this.state.contacts.filter(contact =>
       contact.name.toLowerCase().includes(normalizedFilter),
       )
+  };
+
+  deleteContact = contactId => {
+    this.setState(prevState => ({
+      contacts: prevState.contacts.filter(contact => contact.id !== contactId)
+    }))
   };
 
   render() {
@@ -74,6 +70,7 @@ class App extends React.Component {
         <ContactList
           // contacts={this.state.contacts}
           contacts={this.filteredContacts}
+          onDeleteContact={this.deleteContact}
         />
       </div>
     )
