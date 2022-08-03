@@ -18,7 +18,11 @@ class App extends React.Component {
   };
 
   addContact = ({name, number}) => {
-    // console.log(name);
+    const contactName = this.state.contacts.map(contact => contact.name);
+    if (contactName.includes(name)) {
+      alert(`${name} is already in contacts.`)
+    }
+
     const contact = {
       id: nanoid(),
       name: name,
@@ -29,6 +33,16 @@ class App extends React.Component {
       contacts: [contact, ...prevState.contacts]
     }))
   }
+
+  // const contactNames = this.state.contacts.map(contact => contact.name);
+
+  //   if (contactNames.includes(data.name)) {
+  //     alert(`${data.name} is already in contacts.`);
+  //   } else {
+  //     this.setState(({ contacts }) => ({
+  //       contacts: [data, ...contacts],
+  //     }));
+  //   }
 
   changeFilter = (event) => {
     this.setState({
