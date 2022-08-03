@@ -2,9 +2,9 @@ import React from 'react';
 import { nanoid } from 'nanoid';
 import css from './App.module.css';
 
-import ContactForm from './ContactForm/ContactForm';
-import ContactFilter from './ContactFilter/ContactFilter';
-import ContactList from './ContactList/ContactList';
+import ContactForm from '../ContactForm/ContactForm';
+import ContactFilter from '../ContactFilter/ContactFilter';
+import ContactList from '../ContactList/ContactList';
 
 class App extends React.Component {
 

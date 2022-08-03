@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import css from './ContactFilter.module.css';
 
 function ContactFilter({filter, onFilter}) {
@@ -13,5 +14,10 @@ function ContactFilter({filter, onFilter}) {
         </div>
     )
 }
+
+ContactFilter.propTypes = {
+    filter: PropTypes.string.isRequired,
+    onFilter: PropTypes.func.isRequired,
+};
 
 export default ContactFilter;
