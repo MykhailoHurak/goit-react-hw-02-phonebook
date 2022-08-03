@@ -6,7 +6,7 @@ function ContactList({ contacts }) {
         <div className={css.ContactList}>
             <h3 className={css.ContactList__title}>ContactList</h3>
             <ul>
-                {contacts.map(contact => {
+                {contacts().map(contact => {
                     return (
                         <Contact
                             key={contact.id}
@@ -14,7 +14,7 @@ function ContactList({ contacts }) {
                             name={contact.name}
                             number={contact.number}
                         />
-                    );
+                    )
                 })}
             </ul>
         </div>

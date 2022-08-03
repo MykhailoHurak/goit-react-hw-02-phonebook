@@ -1,6 +1,6 @@
 import css from './ContactFilter.module.css';
 
-function ContactFilter() {
+function ContactFilter({filter, onFilter}) {
     return (
         <div className={css.ContactFilter}>
             <h3 className={css.ContactFilter__title}>ContactFilter</h3>
@@ -8,6 +8,8 @@ function ContactFilter() {
             <input
                 type="text"
                 className={css.ContactFilter__input}
+                value={filter}
+                onChange={onFilter}
             />
         </div>
     )
