@@ -6,11 +6,9 @@
     margin-top: 10px;
     margin-left: -25px;
     padding: 10px;
-    border: 2px solid black;
 }
 
 .Contact__button {
-    display: block;
     margin: 0 auto;
     height: 32px;
     width: 80px;

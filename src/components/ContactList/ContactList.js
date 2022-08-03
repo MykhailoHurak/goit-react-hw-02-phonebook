@@ -4,7 +4,6 @@ import css from './ContactList.module.css';
 function ContactList({ contacts, onDeleteContact }) {
     return (
         <div className={css.ContactList}>
-            <h3 className={css.ContactList__title}>ContactList</h3>
             <ul>
                 {contacts().map(contact => {
                     return (

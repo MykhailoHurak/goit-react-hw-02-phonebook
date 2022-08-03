@@ -7,6 +7,7 @@ import ContactFilter from './ContactFilter/ContactFilter';
 import ContactList from './ContactList/ContactList';
 
 class App extends React.Component {
+
   state = {
     contacts: [
       { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
@@ -22,35 +23,37 @@ class App extends React.Component {
     if (contactName.includes(name)) {
       alert(`${name} is already in contacts.`)
     } else {
-          const contact = {
-      id: nanoid(),
-      name: name,
-      number: number,
-    }
+      const contact = {
+        id: nanoid(),
+        name: name,
+        number: number,
+      };
 
-    this.setState((prevState) => ({
-      contacts: [contact, ...prevState.contacts]
-    }))
-    }
+      this.setState((prevState) => ({
+        contacts: [contact, ...prevState.contacts]
+      }));
+    };
   }
 
-  changeFilter = (event) => {
+  changeFilter = event => {
     this.setState({
       filter: event.currentTarget.value,
-    })
+    });
   };
 
   filteredContacts = () => { 
     const normalizedFilter = this.state.filter.toLowerCase();
     return this.state.contacts.filter(contact =>
-      contact.name.toLowerCase().includes(normalizedFilter),
-      )
+      contact.name
+        .toLowerCase()
+        .includes(normalizedFilter),
+    );
   };
 
   deleteContact = contactId => {
     this.setState(prevState => ({
       contacts: prevState.contacts.filter(contact => contact.id !== contactId)
-    }))
+    }));
   };
 
   render() {
@@ -68,7 +71,6 @@ class App extends React.Component {
           onFilter={this.changeFilter}
         />
         <ContactList
-          // contacts={this.state.contacts}
           contacts={this.filteredContacts}
           onDeleteContact={this.deleteContact}
         />
@@ -78,22 +80,3 @@ class App extends React.Component {
 }
 
 export default App;
-
-
-// ============================================================
-// export const App = () => {
-//   return (
-//     <div
-//       style={{
-//         height: '100vh',
-//         display: 'flex',
-//         justifyContent: 'center',
-//         alignItems: 'center',
-//         fontSize: 40,
-//         color: '#010101'
-//       }}
-//     >
-//       React homework template
-//     </div>
-//   );
-// };

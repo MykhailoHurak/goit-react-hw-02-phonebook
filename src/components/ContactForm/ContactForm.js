@@ -2,22 +2,21 @@ import React from 'react';
 import css from './ContactForm.module.css';
 
 class ContactForm extends React.Component {
+
     state = {
         name: '',
         number: '',
     };
 
-    handleChange = (event) => {
+    handleChange = event => {
         this.setState({
             [event.currentTarget.name]: event.currentTarget.value,
         })
     };
 
-    handleSubmit = (event) => {
+    handleSubmit = event => {
         event.preventDefault();
-        // console.log(this.state);
         this.props.onSubmit(this.state);
-        
         this.setState({
             name: '',
             number: '',
@@ -27,7 +26,6 @@ class ContactForm extends React.Component {
     render() {
         return (
             <div className={css.ContactForm}>
-                <h3 className={css.ContactForm__title}>ContactForm</h3>
                 <form onSubmit={this.handleSubmit}>
                     <label className={css.ContactForm__label}>
                         Name
